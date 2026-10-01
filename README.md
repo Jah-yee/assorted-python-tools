@@ -1,5 +1,3 @@
-# This file is actively being written. This repo is only visible so that it can be installed without a headache.
-
 # Assorted Tools
 
 This is a library of very small tools created for my personal use. They only exist to solve minor inconveniences I have come across from time to time. This repository exists because if I needed these tools, somebody else probably does too.
@@ -93,7 +91,92 @@ You may use a wildcard import to import everything a specific module provides, b
 
 # Using these tools
 
-[TODO]
+## ansiText
+
+Provides classes `style` and `color`, and function `reset`.
+
+Eases formatting text output by providing more memorable names for ANSI codes.
+
+Example:
+```python
+from assorted_tools.ansiText import style, color
+
+print(f"{color.BLUE}This text will be blue.{style.RESET}")
+```
+
+## centerprint
+
+Provides function `centerprint`.
+
+Prints (or returns) a provided string centered in the terminal, word wrapped and balanced across multiple lines.
+
+Example:
+```python
+from assorted_tools.centerprint import centerprint
+
+centerprint("Unit 1, assignment 1")
+
+print("Hello world!")
+```
+
+## debug
+
+Provides functions `set_debug` and `deprint`.
+
+The deprint function is identical to the built-in print function, but conditional. By default, deprint will do nothing. When set_debug is used to activate it, deprint will behave exactly like the built-in print function.
+
+Example:
+```python
+from assorted_tools.debug import set_debug, deprint
+
+set_debug(True)
+
+deprint("This will print.")
+
+set_debug(False)
+
+deprint("And this will not.")
+```
+
+## input
+
+Provides function `input`. Replaces built-in function `input`.
+
+Behaves like the built-in input, but with some slight added features. By default, the text being typed by the user will display with an underline. A default response may be provided, which will appear faintly *after* the user's cursor. The default response will be returned if the user types nothing.
+
+Example:
+```python
+from assorted_tools.input import input
+
+name = input("Name: ", default="Anonymous")
+```
+
+## misc
+
+Provides functions `clear`, `newsection`, and `slowprint`.
+
+The clear function clears the terminal.
+
+The newsection function is used to organize terminal output into sections for easier reading.
+
+The slowprint function takes a string and prints it out character by character.
+
+<sup>The slowprint function was more of a simple refresher exercise than something I have ever actually needed to use.</sup>
+
+## randomword
+
+Provides functions `randomword` and `randomwords`.
+
+The randomword function returns a randomly selected English word. Randomness uses `secrets`, and is thus viable for use in a password generator.
+
+The randomword**s** function returns a random number of random words. The function takes two integers, which set the range of how many words get returned inclusive. By default it returns a string; set `string=False` to get a list instead.
+
+Example:
+```python
+from assorted_tools.randomword import randomword
+
+print(randomword())
+```
 
 # Contributing
 If something is broken or badly written, open an issue! If you know how to fix it yourself, fork the repo, fix it, and open a pull request! If you have tools of your own you'd like to add, open a pull request!
