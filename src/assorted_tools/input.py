@@ -23,7 +23,7 @@ def input(prompt="", styling=f"{style.UNDERLINE}", default=""):
         prompt += creturn
         prompt += styling
         response = standardinput(prompt)
-        if response == "":
+        if not response:
             response = default
     reset()
     return response
