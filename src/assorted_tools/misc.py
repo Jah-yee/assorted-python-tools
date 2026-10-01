@@ -6,10 +6,7 @@ from time import sleep
 from .ansiText import *
 from .centerprint import *
 
-__all__ = ["clear", "slowprint", "newsection"]
-
-_terminal_size = shutil.get_terminal_size()
-
+__all__ = ["clear", "newsection", "slowprint"]
 
 def clear(delay=0):
     """Clear the terminal.
@@ -41,6 +38,7 @@ def newsection(character="=", delay=0.5, nl=1, title=""):
     :param nl: number of blank lines to print before the rule.
     :param title: optional argument which will use centerprint() to put the title in the center of the bar.
     """
+    _terminal_size = shutil.get_terminal_size()
     if title == "":
         sleep(delay)
         print(f"{style.RESET}{color.BRIGHT_BLACK}{"\n" * nl}{character[0] * _terminal_size.columns}\n{style.RESET}")
