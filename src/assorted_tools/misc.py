@@ -43,6 +43,7 @@ def newsection(character="=", delay=0.5, nl=1, title=""):
         sleep(delay)
         print(f"{style.RESET}{color.BRIGHT_BLACK}{"\n" * nl}{character[0] * _terminal_size.columns}\n{style.RESET}")
     else:
+        sleep(delay)
         title = f"{style.RESET}{title}{color.BRIGHT_BLACK}"
         print(f"{style.RESET}{color.BRIGHT_BLACK}{"\n" * nl}{centerprint(title, whitespace=character, ret=True)}\n{style.RESET}")
 
